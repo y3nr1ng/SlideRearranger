@@ -39,11 +39,8 @@ public class ImagePanel extends javax.swing.JPanel {
         try {
             ImagePlus imp = (BF.openImagePlus((new File(path)).getAbsolutePath()))[0];
             resized = Scalr.resize(imp.getBufferedImage(), this.getWidth(), this.getHeight());
-        } catch (IOException ex) {
+        } catch (IOException | FormatException ex) {
             Logger.getLogger(ImagePanel.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (FormatException ex) {
-            Logger.getLogger(ImagePanel.class.getName()).log(Level.SEVERE, null, ex);
-            //System.out.println(ex);
         }
     }
     
